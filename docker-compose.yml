@@ -1,0 +1,15 @@
+version: '2'
+services:
+  rabbitmq:
+     image: rabbitmq:3.6.12-management
+     restart: always
+     hostname: rabbitmq
+     volumes:
+       - ./definitions.json:/etc/rabbitmq/definitions.json:ro
+       - ./rabbitmq.config:/etc/rabbitmq/rabbitmq.config:ro
+       - ./rabbitmq-env.conf:/etc/rabbitmq/rabbitmq-env.conf:ro
+
+       - /RabbitData:/var/lib/rabbitmq/mnesia
+     ports:
+       - "5672:5672"
+       - "15672:15672"

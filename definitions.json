@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "name":"lykke.history",
+      "password":"lykke.history",
+      "tags":"administrator"
+    }
+  ],
+  "vhosts": [
+    {
+      "name": "/"
+    }
+  ],
+  "permissions": [
+    {
+      "user": "lykke.history",
+      "vhost": "/",
+      "configure": ".*",
+      "write": ".*",
+      "read": ".*"
+    }
+  ],
+  "policies": [
+    {
+      "name": "expiry",
+      "vhost":"/",
+      "pattern": "^((?!([_]|-poison)).)*$",
+      "definition": {"expires": 3600000},
+      "priority": 0,
+      "apply-to": "queues"}
+  ]
+}
