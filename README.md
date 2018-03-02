@@ -1,0 +1,1 @@
+# Lykke.RabbitMQ.Template
